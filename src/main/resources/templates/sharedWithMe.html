@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http:://w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>TaskManager</title>
+</head>
+<body>
+	<h1 th:text="'Shared with me:'">...</h1>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="project : ${sharedWithMe}">
+				<td><a th:href="'/projects/' + ${project.id}"
+					th:text="${project.name}">...</a></td>
+				 <td th:text="'(Owner: '+${project.owner.firstName} + ' ' + ${project.owner.lastName}+')'"><td>
+			</tr>
+		</tbody>
+	</table>
+	<footer>
+	 <h4><a th:href="@{/home}">Home</a></h4>
+	</footer>
+</body>
+</html>

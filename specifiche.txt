@@ -1,0 +1,92 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Casi d'uso : User
+
+a) Registering
+    1. Utente si vuole registrare al sistema.
+    2. Sceglie l'opzione 'Register'.
+    3. Compila i campi Username:Password:Nome:Cognome.
+    4. Conferma la registrazione e il sistema verifica che i dati inseriti soddisfino i requisiti necessari restituendo una pagina di successo, se i dati non soddisfano il sistema, viene specificato il problema.
+
+b) Authentication
+    1. L'utente registrato puo fare il Login autenticandosi.
+    2. Andando sul Login inserisce Username e Password.
+    3. Il Sistema verifica che i dati inseriti siano corretti e porta l'utente alla pagina home.
+
+c) Profile
+    1. L'utente autenticato visualizza il suo profilo scegliendo l'opzione 'Profile'.
+    2. Viene visualizzata una pagina che mostra Username, Nome, Cognome, Ruolo, data di creazione del profilo e ultimo update del profilo.
+
+d) Edit Profile
+    1. L'utente vuole aggiornare le informazioni del suo profilo puo farlo scegliendo l'opzione 'EDIT PROFILE'.
+    2. Viene visualizzata una pagina che mostra Username:Password:First Name:Last Name dove l'utente puo modificare tutti i campi.
+    3. Il Sistema verifica che i dati siano corretti, registra le modifche  e porta l'uetnte ad una pagina di successo.
+    
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Casi d'uso : Project
+
+a) Create new Project
+    1. L'utente vuole creare un nuovo progetto.
+    2. Andando su 'Create new Project' sulla Home, viene visualizzato un form da compilare dove inserire Nome del Progetto, Descrizione del progetto.
+    3. Il sistema verifica che i dati siano corretti e porta l'utente alla pagina del progetto.
+
+b) My Projects
+    1. L'utente vuole vedere i suoi progetti.
+    2. Andando sulla voce 'My Projects' viene portato ad una pagina che contiene la lista dei suoi progetti.
+
+c) Project details
+	1. L'utente vuole visualizzare le specifiche di un progetto.
+	2. Andando sul nome del progetto dalla lista visualizzata in 'My project' viene portato ad una pagina contenente i suoi dettagli.
+	3. Viene visualizzata quindi una pagina che mostra Nome del progetto, Owner, Descrizione del progetto con relativa data di creazione e dell'ultimo update, lista dei Task.
+	4. Qui l'utente può usufruire di 4 bottoni: 'ADD TASK', 'DELETE PROJECT', 'EDIT PROJECT', 'SHARE PROJECT'.
+	
+d) Delete Project
+    1. L'utente vuole cancellare un progetto.
+    2. Andando su 'My projects' trova accanto al/i progetto/i la voce 'DELETE' oppure entrando nella pagina del progetto trova la voce 'DELETE PROJECT'.
+    3. Cliccando su uno di questi due bottoni, l'utente cancellerà il progetto dal database.
+    
+e) Edit Project
+	1. L'utente vuole modificare un progetto.
+	2. Dalla pagina con le specifiche del progetto, l'utente può andare sul bottone 'EDIT PROJECT' per poterlo modificare.
+	3. Verrà reindirizzato in una pagina dove sarà possibile inserire un nuovo Nome e/o una nuova Descrizione per il progetto.
+	4. Cliccando da qui sul tasto 'UPDATE' verranno apportate le modifiche desiderate.
+
+f) Share Project
+	1. L'Owner del progetto vuole condividere ad altri utenti il proprio progetto.
+	2. Dalla pagina con le specifiche del progetto, l'utente può andare sul bottone 'SHARE PROJECT' per poterlo condividere.
+	3. Verrà reindirizzato in una pagina dove sarà possibile inserire il campo Username dell'utente a cui si vorrà dare accesso al progetto.
+	4. Sarà possibile vedere gli utenti a cui è stato condiviso il progetto sotto la dicitura 'Shared With:' dalla pagina con le sue specifiche.
+	5. Agli utenti sarà invece possibile vedere i progetti che gli sono stati condivisi da altre persone andando sulla voce 'Shared With Me' sulla Home, verrà visuallizato quindi Nome del Progetto condiviso e proprio Owner.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------- 
+    
+Casi d'uso : Task
+
+a) Create new Task
+	1. L'utente vuole creare una nuova Task per il progetto.
+	2. Andando sul bottone 'ADD TASK' sulla pagina con le specifiche del progetto accederà a un form dove potrà inserire Nome e Descrizione per la nuova Task.
+	3. Cliccando ora nuovamente sul bottone 'ADD TASK', questa volta però nella pagina di creazione, verrà creato una nuova Task.
+	
+b) Task details
+	1. L'utente vuole visualizzare la lista e le specifiche di una Task.
+	2. Dalla pagina con le specifiche del progetto, dopo la creazione delle Task, apparirà una lista con esse sotto la voce 'Tasks'.
+	3. Sulla lista potrà visualizzare Nome e Descrizione della Task, data di creazione e una scritta che può essere 'COMPLETED' in verde nel caso in cui la Task è stata completata e TO DO in rosso nel caso in cui la Task è da completare.
+	4. L'utente potrà inoltre accedere a due bottoni, posti al di sotto della Task: 'UPDATE','DELETE' e 'ASSIGN TASK'.
+	
+c) Delete Task
+	1. L'utente vuole cancellare una Task.
+	2. Dalla pagina con le specifiche di un progetto, sotto la voce 'Tasks', l'utente potrà cliccare sul bottone 'DELETE' presente sotto ogni Task.
+	3. La Task desiderata verrà cancellata ed eliminata dalla lista.
+	
+d) Edit Task
+	1. L'Utente vuole modificare una task.
+	2. Dalla pagina con le specifiche del progetto, sotto la voce 'Tasks', potrà cliccare sul bottone 'UPDATE' presente sotto ogni Task.
+	3. Verrà reindirizzato a una pagina dove sarà possibile inserire un nuovo Nome e/o Descrizione per la Task, in più avrà la possibilità di selezionare se la Task è stata completata o no tramite un checkbox.
+	4. Cliccando da qui sul tasto 'CONFIRM' verranno apportate le modifiche alla Task desiderata e l'utente verrà reindirizzato alla pagina con le specifiche del progetto.
+	
+e) Assign Task
+	1. L'Owner del progetto vuole assegnare una Task ad un Utente a cui è gia stato condiviso il progetto.
+	2. Dalla pagina con le specifiche del progetto, sotto la voce 'Tasks', potrà cliccare sul bottone 'ASSIGN TASK' presente sotto ogni Task.
+	3. Verrà reindirizzato a una pagina dove sarà possibile inserire il campo Username dell'utente a cui si vorrà assegnare il progetto.
+	4. Cliccando  da qui sul tasto 'ASSIGN' verrà assegnato alla Task l'utente che è stato inserito, sarà visibile sotto la voce 'Tasks' sulla pagina con le specifiche del progetto.

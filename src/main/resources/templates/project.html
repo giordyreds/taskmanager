@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/html"
+      xmlns:th="htpps://www.thymelead.org">
+<head>
+    <title>TaskManager</title>
+</head>
+<body>
+<table>
+<tr>
+	<td>
+		<h1 th:text="${project.name}"></h1>
+	</td>
+	<td th:text="'(Owner: '+${project.owner.firstName} + ' ' + ${project.owner.lastName}+')'"><td>
+</tr>
+</table>
+<h4 th:text="${project.description}" style="color:gray"></h4>
+<h4>Creation Time</h4>
+<h5 th:text="${project.creationTimeStamp}"></h5>
+<h4>Update Time</h4>
+<h5 th:text="${project.lastUpdateTimeStamp}"></h5>
+<div th:if="${members.size()> 0}">
+    <h3>Shared with:</h3>
+    <ul>
+         <li th:each="member : ${members}">
+             <div th:text="${member.firstName} + ' ' + ${member.lastName}"></div>
+         </li>    
+    </ul>
+</div>
+<h3>Tasks</h3>
+<ol>
+    <li th:each ="task : ${project.tasks}">
+        <div th:text="${task.name}"></div>
+        <div th:text="${task.description}" style="color:gray"></div>
+        <div th:if="${task.completed}" style="color:green">COMPLETED</div>
+        <div th:unless="${task.completed}" style="color:red">TO DO</div> 
+        <div th:text="${task.creationTimeStamp}"></div>
+        <div th:if="${task.assigned != null}"  th:text="' ASSIGNED TO : ' + ${task.assigned.firstName}"></div>
+        <div th:unless="${task.assigned != null}">NOT ASSIGNED</div>
+        <table>
+        	<tr>
+        	<td>
+        		<p><a th:href="@{'/projects/' + ${project.id} + '/tasks/assign/' + ${task.id}}"><button class="button2">ASSIGN TASK</button></a></p>
+        	</td>
+        	<td>
+        		<p><a th:href="@{'/projects/'+${project.id}+'/tasks/update/'+${task.id}}"><button class="button2">UPDATE</button></a></p>
+        	</td>
+        	<td>
+        		<form method="POST" th:action="@{'/projects/'+${project.id}+'/tasks/delete/'+${task.id}} ">
+        			<button type="submit" name="submit" value="value">DELETE</button>
+        		</form>
+        	</td>
+        	</tr>
+        </table>
+    </li>
+</ol>
+
+<p> <a th:href = "@{'/projects/'+${project.id}+'/tasks/add'}"><button>ADD TASK</button></a></p>
+<table>
+    <tr>
+        <td>
+		<form method="POST" th:action="@{'/projects/'+${project.id}+'/delete/'} ">
+        		<button type="submit" name="submit" value="value">DELETE PROJECT</button>
+       	</form>
+        </td>
+        <td>
+        	<a th:href="@{'/projects/update/'+${project.id}}"><button class="button2">EDIT PROJECT</button></a>
+        </td>
+        <td>
+            <p><a th:href="@{'/projects/share/'+${project.id}}"><button class="button2">SHARE PROJECT</button></a></p>
+        </td>
+    </tr>
+</table>
+	<footer>
+	 <h4><a th:href="@{/home}">Home</a></h4>
+	</footer>
+</body>
+</html>
