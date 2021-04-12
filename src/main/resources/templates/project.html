@@ -21,6 +21,7 @@
 <h5 th:text="${project.lastUpdateTimeStamp}"></h5>
 <div th:if="${members.size()> 0}">
     <h3>Shared with:</h3>
+    <a th:text="${countMembers}"></a>
     <ul>
          <li th:each="member : ${members}">
              <div th:text="${member.firstName} + ' ' + ${member.lastName}"></div>

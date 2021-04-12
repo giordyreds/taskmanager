@@ -55,7 +55,7 @@ public class ProjectController {
 	public String myOwnedProjects(Model model) {
 		User loggedUser = sessionData.getLoggedUser();
 		List<Project> projectList = projectService.retrieveProjectOwned(loggedUser);
-		model.addAttribute("loggedUser", loggedUser );
+		model.addAttribute("loggedUser", loggedUser);
 		model.addAttribute("projectList", projectList);
 		return "myOwnedProjects";
 	}
@@ -70,6 +70,8 @@ public class ProjectController {
 		if (project == null)
 			return "redirect:/projects";
 		List<User> members = userService.getMembers(project);
+		
+		
 		if (!project.getOwner().equals(loggedUser) && !members.contains(loggedUser))
 			return "redirect:/projects";
 		model.addAttribute("loggedUser", loggedUser);
